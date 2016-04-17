@@ -11,6 +11,7 @@ var ball;
 var balls = [];
 var graphics;
 var toggle;
+var ballamount = 5;
 
 $(function(){	
 
@@ -40,13 +41,13 @@ function create() {
     game.physics.p2.restitution = 0.8;
 
     ball = game.add.sprite(200,200,'ball');
-    game.physics.p2.enable(ball, true);
-    ball.body.setCircle(10);
+    game.physics.p2.enable(ball, false);
+    ball.body.setCircle(5);
     ball.body.angularForce = 25;
 
     // add group
     var group = game.add.physicsGroup(Phaser.Physics.P2JS);
-    for (var i = 0; i<5; i++) {
+    for (var i = 0; i<ballamount; i++) {
     	balls[i] = group.create(game.world.randomX, game.rnd.between(0, 100), 'ball');
     	balls[i].body.setCircle(5);
     }
@@ -61,7 +62,7 @@ function create() {
     graphics.beginFill(0x000000);
     graphics.drawCircle(circle.x, circle.y, circle.diameter);
     
-    game.physics.p2.enable(graphics,false);
+    game.physics.p2.enable(graphics,true);
     graphics.body.setCircle(25);
 
     game.input.onDown.add(bounce, this);
@@ -78,7 +79,7 @@ function bounce() {
 	} else {
 		ball.body.angularVelocity  = 5;
 	}
-	for (var i = 0; i<5; i++) {
+	for (var i = 0; i<ballamount; i++) {
     	balls[i].body.velocity.x = game.input.x - balls[i].x;
     	balls[i].body.velocity.y = game.input.y - balls[i].y;
     }
