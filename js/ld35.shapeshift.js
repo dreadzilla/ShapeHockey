@@ -70,7 +70,7 @@ var playState = {
 		game.load.audio('bounce', 'audio/bounce1.wav');
 		game.load.audio('win1', 'audio/won1.wav');
 		game.load.audio('win2', 'audio/won2.wav');
-		game.load.audio('bgmusic', 'audio/shapeshift.ogg');
+		game.load.audio('bgmusic', 'audio/shapeshift.wav');
 		game.load.bitmapFont('shortStack', 'fonts/shortStack.png', 'fonts/shortStack.xml');
 	},
 
